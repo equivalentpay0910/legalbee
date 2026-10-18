@@ -13,14 +13,27 @@ legalbee/
 ├── eval/        # test questions and accuracy checks
 └── docs/        # architecture diagram and decisions
 ```
-# 2 parts of LegalBee
-- Ahead of time # we build our library
-  collect official legal sources, clean that text, break into small chunks, store each in a vector DB, tag where it comes from + what domain it is in + when we last checked it. only thing bot is allowed to use
-- Live part # 5 steps
-  questionnaire (user answers simple questions eg. where they live + is this about housing or work or immigration + what is going on)
-  rules (fixed logic, no AI, takes those answers and decides which area of law applies. they are referred out if this is out of scope)
-  retrieval (search the vector DB for legal text that best matches their situation)
-  LLM (takes only those retrieved chunks and explains in plain language. no hallucination)
-  Answer (user sees the explanation, the exact sources with links, like a legal aid office nearby)
+## How LegalBee Works
 
-  eval tests each step with real questions we've written, to catch wrong answers or missing citations.
+LegalBee has two parts:
+
+### 1. Ahead of time: building our library
+- Collect official legal sources
+- Clean the text and break it into small chunks
+- Store each chunk in a vector DB, tagged with:
+  - where it comes from
+  - what domain it is in
+  - when we last checked it
+
+> This library is the **only** thing the bot is allowed to use.
+
+### 2. Live part: 5 steps
+
+1. **Questionnaire**: the user answers simple questions (e.g., where they live, whether this is about housing, work or immigration, and what is going on)
+2. **Rules**: fixed logic, no AI. Takes those answers and decides which area of law applies. Users are referred out if their question is out of scope.
+3. **Retrieval**: searches the vector DB for the legal text that best matches their situation
+4. **LLM**: takes only those retrieved chunks and explains them in plain language. No hallucination.
+5. **Answer**: the user sees the explanation, the exact sources with links, and next steps (like a nearby legal aid office)
+
+### Evaluation
+Eval tests each step with real questions we've written, to catch wrong answers or missing citations.
