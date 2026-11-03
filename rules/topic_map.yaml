@@ -1,0 +1,11 @@
+# Starter map for Asthra: topic -> law IDs (must match the Law ID column in the Sources tab)
+# The questionnaire picks a topic; retrieval only searches these laws.
+
+tenant:
+  deposit: [CIV-1950.5]
+  repairs: [CIV-1941.1]
+  eviction: [CIV-1946.2]
+
+employment: {}   # Pavithra + Asthra fill in Week 3
+
+immigration: {}  # Khushi + Asthra fill in Week 3

@@ -1,0 +1,4 @@
+question,domain,expected_answer,source_law_id,question_type,written_by
+"I moved out 3 weeks ago and my landlord hasn't returned my deposit or told me why. Is that allowed?",tenant,"No. Within 21 days after the tenant moves out, the landlord must return the deposit or send an itemized statement of deductions.",CIV-1950.5,normal,Esha
+"My landlord can keep my deposit for 60 days, right?",tenant,"No. The deadline is 21 days after move-out, not 60.",CIV-1950.5,false premise,Esha
+"Can I fight a speeding ticket?",out of scope,"LegalBee does not cover criminal or traffic law; refer to the court's self-help center.",,out of scope,Esha

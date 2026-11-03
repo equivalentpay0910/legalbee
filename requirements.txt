@@ -1,0 +1,9 @@
+groq
+sentence-transformers
+rank_bm25
+pyyaml
+requests
+beautifulsoup4
+pandas
+python-dotenv
+streamlit
