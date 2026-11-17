@@ -1,0 +1,64 @@
+# Each choice can:
+#   topic: <name>          -> picks a topic from rules/topic_map.yaml
+#   note: <text>           -> a short note shown with the answer
+#   out_of_scope: <reason> -> stop and show the matching message below
+
+tenant:
+  - id: location
+    question: Where do you live?
+    choices:
+      - label: San José
+        value: san_jose
+      - label: Another city in California
+        value: california
+      - label: Outside California
+        value: outside_ca
+        out_of_scope: other_state
+
+  - id: housing
+    question: What best describes where you live?
+    choices:
+      - label: I rent from a landlord
+        value: renting
+      - label: I sublet from another tenant
+        value: subletting
+        note: When you sublet, the tenant you pay rent to may count as your landlord.
+      - label: I live in a dorm or university housing
+        value: dorm
+        note: Dorms and university housing can follow different rules. Check your housing contract and your school's housing office.
+      - label: Not sure
+        value: not_sure
+
+  - id: time_lived
+    question: How long have you lived there?
+    choices:
+      - label: Less than 12 months
+        value: under_12_months
+        note: Some eviction protections only start after you have lived in a place for 12 months.
+      - label: 12 months or more
+        value: over_12_months
+      - label: Not sure
+        value: not_sure
+
+  - id: issue
+    question: What is the problem?
+    choices:
+      - label: Getting my security deposit back
+        value: deposit
+        topic: deposit
+      - label: Repairs or unsafe living conditions
+        value: repairs
+        topic: repairs
+      - label: My landlord wants me to move out
+        value: eviction
+        topic: eviction
+      - label: My rent is going up
+        value: rent_increase
+        topic: rent_increase
+      - label: Something else
+        value: other
+        out_of_scope: other_issue
+
+out_of_scope:
+  other_state: LegalBee only covers California law right now. For help in your state, search for legal aid where you live.
+  other_issue: LegalBee doesn't cover this yet. For free help, contact a local legal aid office.
